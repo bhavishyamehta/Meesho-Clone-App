@@ -84,7 +84,7 @@ class MainActivity : ComponentActivity() {
                 verticalArrangement = Arrangement.Center
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.ic_purchase),
+                    painter = painterResource(id = R.drawable.meesho_logo),
                     contentDescription = "App Icon",
                     modifier = Modifier.size(300.dp)
                 )

@@ -28,6 +28,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.HeartBroken
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
@@ -149,7 +150,7 @@ fun CategoryScreen(navController: NavController) {
                     }
                     IconButton(onClick = { navController.navigate(Routes.WishlistScreen) }) {
                         Icon(
-                            Icons.Default.HeartBroken,
+                            Icons.Default.Favorite,
                             modifier = Modifier.size(22.dp),
                             contentDescription = "favourite"
                         )

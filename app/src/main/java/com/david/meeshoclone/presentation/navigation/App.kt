@@ -10,6 +10,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Category
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.LocalMall
+import androidx.compose.material.icons.filled.ShoppingBag
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
@@ -24,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -69,6 +75,7 @@ fun App(firebaseAuth: FirebaseAuth, payTest: () -> Unit) {
             Routes.CategoryScreen::class.qualifiedName,
             Routes.MyOrdersScreen::class.qualifiedName,
             Routes.MeeshoMallScreen::class.qualifiedName -> true
+
             else -> false
         }
     }
@@ -76,22 +83,22 @@ fun App(firebaseAuth: FirebaseAuth, payTest: () -> Unit) {
     val BottomNavItem = listOf(
         BottomNavItem(
             "Home",
-            icon = painterResource(R.drawable.ic_homee),
+            icon = Icons.Default.Home,
             unSelectedIcon = painterResource(id = R.drawable.ic_homee)
         ),
         BottomNavItem(
             "Category",
-            icon = painterResource(R.drawable.ic_victory),
+            icon = Icons.Default.Category,
             unSelectedIcon = painterResource(id = R.drawable.ic_victory)
         ),
         BottomNavItem(
             "Mall",
-            icon = painterResource(R.drawable.ic_gift),
+            icon = Icons.Default.LocalMall,
             unSelectedIcon = painterResource(id = R.drawable.ic_gift)
         ),
         BottomNavItem(
             "My Orders",
-            icon = painterResource(R.drawable.ic_purchase),
+            icon = Icons.Default.ShoppingBag,
             unSelectedIcon = painterResource(id = R.drawable.ic_purchase)
         )
     )
@@ -142,7 +149,7 @@ fun App(firebaseAuth: FirebaseAuth, payTest: () -> Unit) {
                             },
                             icon = {
                                 Icon(
-                                    painter = navigationItem.icon,
+                                    imageVector = navigationItem.icon,
                                     contentDescription = navigationItem.name,
                                     modifier = Modifier.size(24.dp),
                                     tint = if (index == selectedItem) {
@@ -282,6 +289,6 @@ fun App(firebaseAuth: FirebaseAuth, payTest: () -> Unit) {
 
 data class BottomNavItem(
     val name: String,
-    val icon: Painter,
+    val icon: ImageVector,
     val unSelectedIcon: Painter
 )
